@@ -13,6 +13,11 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
 
     private ArrayList<Contact> contactLists;
 
+    public void setFilteredList(ArrayList<Contact> filteredList) {
+        this.contactLists = filteredList;
+        notifyDataSetChanged();
+    }
+
     public ContactAdapter(ArrayList<Contact> contactLists) {
         this.contactLists = contactLists;
     }

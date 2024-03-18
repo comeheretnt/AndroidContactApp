@@ -22,15 +22,13 @@
             ></ImageView>
 
 
-        <TextView
+        <com.google.android.material.search.SearchView
+            android:id="@+id/searchview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Search contacts"
-            android:gravity="center"
-            android:textAlignment="textStart"
-            android:layout_marginLeft="15dp"
-            android:textColor="@color/gray"
-            ></TextView>
+            app:queryHint="Search contacts"
+            android:layout_marginLeft="10dp"
+            ></com.google.android.material.search.SearchView>
     </LinearLayout>
 
     <RelativeLayout
@@ -43,8 +41,8 @@
             android:id="@+id/rv_contact"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
             android:background="@color/trangxam"
             tools:layout_editor_absoluteX="1dp"
             tools:layout_editor_absoluteY="1dp" />
