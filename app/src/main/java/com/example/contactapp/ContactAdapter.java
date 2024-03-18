@@ -43,7 +43,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
             super(view);
             // Define click listener for the ViewHolder's View
 
-            TvName = (TextView) view.findViewById(R.id.tv_name);
+            TvName = view.findViewById(R.id.tv_name);
         }
 
     }

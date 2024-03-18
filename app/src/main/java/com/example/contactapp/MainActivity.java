@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private ArrayList<Contact> contactList;
+    private ArrayList contactList;
     private ContactAdapter contactAdapter;
 
     private AppDatabase appDatabase;
