@@ -3,6 +3,7 @@ package com.example.contactapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -36,19 +37,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(viewRoot);
 
 
-        searchView = findViewById(R.id.searchview);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                filterList(newText);
-                return true;
-            }
-        });
+//        searchView = findViewById(R.id.searchview);
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                filterList(newText);
+//                return true;
+//            }
+//        });
 
         binding.rvContact.setLayoutManager(new LinearLayoutManager(this));
         contactList = new ArrayList<Contact>();
@@ -72,22 +73,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-    }
-
-    private void filterList(String text) {
-        ArrayList<Contact> filteredList = new ArrayList<>();
-        for (Contact item : contactList) {
-            if (item.getName().toLowerCase().contains(text.toLowerCase())) {
-                filteredList.add(item);
+        binding.floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                startActivity(intent);
             }
-        }
+        });
 
-        if (filteredList.isEmpty()) {
-            Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
-        } else {
-            contactAdapter.setFilteredList(filteredList);
-        }
     }
+
+//    private void filterList(String text) {
+//        ArrayList<Contact> filteredList = new ArrayList<>();
+//        for (Contact item : contactList) {
+//            if (item.getName().toLowerCase().contains(text.toLowerCase())) {
+//                filteredList.add(item);
+//            }
+//        }
+//
+//        if (filteredList.isEmpty()) {
+//            Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+//        } else {
+//            contactAdapter.setFilteredList(filteredList);
+//        }
+//    }
 }
